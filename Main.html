@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Google</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(
+				function(){
+					$("#xLogo").hide();
+				}
+			);
+		</script>
+		<style>
+			a {
+				color : black;
+				text-decoration : none;
+				font-family : Arial;
+				font-size : 13px;
+			}
+			a:hover {
+  				text-decoration: underline;
+			}
+			#aboutlink {
+				position : relative;
+				left : 20px;
+				top: 20px;
+			}
+			#storelink {
+				position: relative;
+				left : 35px;
+				top: 20px;
+			}
+			#gmaillink {
+				position : relative;
+				left : 1150px;
+				top : 20px;
+			}
+			#imageslink {
+				position : relative;
+				left : 1158px;
+				top : 20px;
+			}
+			#googleLogo {
+				height : 24%;
+				width: 24%;
+				display : block;
+				margin-left: auto;
+  				margin-right: auto;
+  				margin-top : 120px;
+			}
+			#searchLogo {
+				height : 6%;
+				width : 6%;
+				position : relative;
+				top : -9px;
+				left : 15px;
+			}
+			#searchBar {
+				box-sizing : border-box;
+				border : 1px solid gray;
+				border-radius : 60px;
+				width : 40%;
+				display : block;
+				margin-left : auto;
+				margin-right : auto;
+			}
+			input[type=text] {
+				border : none;
+				display : block;
+				margin-left : auto;
+				margin-right : auto;
+				outline : none;
+				font-size : 16px;
+				position : relative;
+				top : 20px;
+			}
+			.xClass {
+				height : 6%;
+				width : 6%;
+				position : relative;
+				top : -12px;
+				left : 480px;
+			}
+			#feelingLucky {
+				font-family : Arial;
+				text-align : center;
+				line-height : 33px;
+				position : relative;
+				font-size : 14px;
+				left : 705px;
+				top : -15px;
+				width : 125px;
+				height : 35px;
+				background-color : lightgray;
+			}
+			#searchButton {
+				font-family : Arial;
+				text-align : center;
+				line-height : 33px;
+				font-size : 14px;
+				position : relative;
+				left : 570px;
+				top : 20px;
+				width : 125px;
+				height : 35px;
+				background-color : lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="https://about.google/" id="aboutlink">About</a>
+		<a href="https://store.google.com/" id="storelink">Store</a>
+		<a href="https://accounts.google.com/" id="gmaillink">Gmail</a>
+		<a href="https://www.google.com/imghp?hl=" id="imageslink">Images</a>
+		<img src="google.png" id="googleLogo">
+		<div id="searchBar">
+			<input type="text" id="searchField" size="58" onkeyup="showX()">
+			<img src="searchLogo.png" id="searchLogo">
+			<a href="#"> <img src="x.png" id="xLogo" onclick="clearSearch()"></a>
+		</div>
+		<div id="searchButton">
+			<a href="javascript:void(search())" id="searchLink">Google Search</a>
+		</div>
+		<div id="feelingLucky">
+			<a href="http://www.google.com" id="luckyLink">I'm Feeling Lucky</a>
+		</div>
+		<script>
+			function showX() {
+				if (document.getElementById("searchField").value.length > 0) {
+					$("#xLogo").show();
+					$("#xLogo").addClass("xClass");
+				}
+				else {
+					$("#xLogo").removeClass('xClass');
+					$("#xLogo").hide();
+				}
+			}
+			function clearSearch() {
+				document.getElementById('searchField').value = '';
+				$("#xLogo").hide();
+			}
+			function search() {
+				var request = document.getElementById("searchField").value;
+				var url = "https://www.google.com/search?q=" + request;
+				window.location = url;
+			}
+		</script>
+	</body>
+</html>
